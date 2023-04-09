@@ -24,10 +24,10 @@ metadata:
   namespace: argo
 spec:
   project: default
-source:
-  repoURL: 'https://istio-release.storage.googleapis.com/charts'
-  targetRevision: 1.17.2
-  chart: istiod
+  source:
+    repoURL: 'https://istio-release.storage.googleapis.com/charts'
+    targetRevision: 1.17.2
+    chart: istiod
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: istio-system
