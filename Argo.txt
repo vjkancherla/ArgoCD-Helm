@@ -1,9 +1,0 @@
->> helm repo add argo https://argoproj.github.io/argo-helm
-
->> helm install -n argo --create-namespace my-argo-cd argo/argo-cd --version 5.28.1
-
->> kubectl port-forward service/my-argo-cd-argocd-server -n argo 8080:443
-
-Browse to localhost:8080
-username: admin
-password: kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
