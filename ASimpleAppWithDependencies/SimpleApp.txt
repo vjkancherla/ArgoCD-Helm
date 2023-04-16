@@ -1,0 +1,8 @@
+1. Download the dependency chart into Simple-App/charts/
+>> helm dependency update Simple-App/
+
+2. helm install -n dev --create-namespace my-simple-app Simple-App/
+
+3. kubectl port-forward svc/simple-app-service 8080:80 -n dev
+
+4. http://my-simple-app.127.0.0.1.nip.io:8080/simple-app-index.html

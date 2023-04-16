@@ -1,0 +1,5 @@
+message: "!!This is a test!!"
+
+##Values for dependency chart Ingress-nginx
+commonLabels:
+  app: my-simple-app
