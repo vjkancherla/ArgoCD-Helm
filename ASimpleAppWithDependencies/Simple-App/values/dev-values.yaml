@@ -8,5 +8,8 @@ ingress-nginx:
     app: my-simple-app
 
   controller:
+    ingressClassResource:
+      name: dev-nginx
     service:
       type: ClusterIP
+    
