@@ -1,6 +1,6 @@
 environment: "dev"
 
-message: "!!This is a DEV test!!"
+message: "!!This is a DEVVVV test!!"
 
 ##Values for dependency chart Ingress-nginx
 ingress-nginx:
@@ -12,4 +12,3 @@ ingress-nginx:
       name: dev-nginx
     service:
       type: ClusterIP
-    
