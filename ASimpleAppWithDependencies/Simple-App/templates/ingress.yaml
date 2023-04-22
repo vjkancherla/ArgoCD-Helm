@@ -2,13 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: simple-app-ingress
-  namespace:  {{.Values.environment}}
+  namespace:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: "{{.Values.environment}}.my-simple-app.127.0.0.1.nip.io"
+    http:
       paths:
       - path: /test(/|$)(.*)
         pathType: Prefix
