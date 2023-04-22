@@ -1,6 +1,6 @@
 environment: "dev"
 
-message: "!!This is a test!!"
+message: "!!This is a DEV test!!"
 
 ##Values for dependency chart Ingress-nginx
 commonLabels:

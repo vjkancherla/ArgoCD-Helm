@@ -1,6 +1,6 @@
-environment: "dev"
+environment: "prod"
 
-message: "!!This is a test!!"
+message: "!!This is a Prod test!!"
 
 ##Values for dependency chart Ingress-nginx
 commonLabels:

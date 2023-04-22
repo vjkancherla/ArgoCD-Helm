@@ -1,8 +1,24 @@
-1. Download the dependency chart into Simple-App/charts/
+1.This simple app uses Nginx-Ingress. Nginx-Ingress is declared as a dependecy in chart.yaml.
+Download the dependency chart (Nginx-Ingress) into Simple-App/charts/
 >> helm dependency update Simple-App/
 
 2. helm install -n dev --create-namespace my-simple-app Simple-App/
 
-3. kubectl port-forward svc/simple-app-service 8080:80 -n dev
+3. Port forward to the Nginx-Controller's service.
+k port-forward svc/my-simple-app-ingress-nginx-controller 8080:80 -n dev
 
-4. http://my-simple-app.127.0.0.1.nip.io:8080/simple-app-index.html
+The way this works is
+host:8080==>Nginx-Ingress-Controller-Service:80==>simple-app-ingress(my ingress)==>simple-app-svc:80==>simple-app-pod:80
+
+4. Uing NIP.io to get to our LOCAL app from the INTERNET:
+ http://my-simple-app.127.0.0.1.nip.io:8080/test/simple-app-index.html
+
+ The way this works is
+
+ http://my-simple-app.127.0.0.1.nip.io:8080/test/simple-app-index.html ==>host:8080==>Nginx-Ingress-Controller-Service:80==>simple-app-ingress(my ingress)==>simple-app-svc:80==>simple-app-pod:80
+
+Ingress config:
+- the simple-app, on the pod itself, is available at path "/" => localhost:80/simple-app-index.html
+- the Ingress redirects "/test" path to "/".
+- So, to access the simple-app using the Ingress we need to add "/test" to path
+So http://my-simple-app.127.0.0.1.nip.io:8080/test/simple-app-index.html == localhost:80/simple-app-index.html

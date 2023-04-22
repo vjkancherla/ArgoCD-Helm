@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-index-html
-  namespace: dev
+  namespace: {{.Values.environment}}
 data:
   simple-app-index.html: |
    <html>

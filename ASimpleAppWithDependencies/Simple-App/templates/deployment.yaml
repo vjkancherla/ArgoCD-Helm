@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-app-v1
-  namespace: dev
+  namespace:  {{.Values.environment}}
 spec:
   replicas: 1
   selector:

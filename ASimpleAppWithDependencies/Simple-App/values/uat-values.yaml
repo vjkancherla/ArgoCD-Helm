@@ -1,6 +1,6 @@
-environment: "dev"
+environment: "uat"
 
-message: "!!This is a test!!"
+message: "!!This is a UAT test!!"
 
 ##Values for dependency chart Ingress-nginx
 commonLabels:
