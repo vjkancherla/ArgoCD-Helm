@@ -5,3 +5,7 @@ message: "!!This is a Prod test!!"
 ##Values for dependency chart Ingress-nginx
 commonLabels:
   app: my-simple-app
+
+controller:
+  service:
+    type: ClusterIP
