@@ -1,0 +1,28 @@
+# Default values for example.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# application
+app:
+  servicePort: 9898
+  containerPort: 9898
+
+# deployment
+deployment:
+  memoryRequest: 50Mi
+  cpuRequest: 10m
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+
+# container
+image:
+  repository:
+    name: ghcr.io/stefanprodan/podinfo
+    isPrivate: false
+    secretName: null
+  name: podinfo
+  tag: 6.5.1
+  pullPolicy: Always

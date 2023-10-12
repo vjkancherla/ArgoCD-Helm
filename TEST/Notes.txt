@@ -1,0 +1,26 @@
+USECASE: 
+    - Create an ArgoCD application which:
+        - points to a 3rd party github repo for generic helm charts
+        - targets a specific tag in the repo (not HEAD)
+        - uses custom values to build and deploy the Chart
+
+
+=================
+INSTALL ARGOCD
+=================
+
+>> k create ns argo-Argo
+
+>> helm install argo-cd argo/argo-cd -n argo-cd -f argo-helm-values.yaml
+
+>> k port-forward -n argocd svc/argo-cd-argocd-server 8080:80
+
+
+============================
+INSTALL ARGOCD APPLICATION
+============================
+>> k create ns apps
+
+>> k create -f application.yaml
+
+>> k port-forward svc/podinfo 9898:9898

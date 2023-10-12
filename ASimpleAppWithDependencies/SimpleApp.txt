@@ -15,7 +15,7 @@ host:8080==>Nginx-Ingress-Controller-Service:80==>simple-app-ingress(my ingress)
 
  The way this works is
 
- http://my-simple-app.127.0.0.1.nip.io:8080/test/simple-app-index.html ==>host:8080==>Nginx-Ingress-Controller-Service:80==>simple-app-ingress(my ingress)==>simple-app-svc:80==>simple-app-pod:80
+ http://my-simple-app.127.0.0.1.nip.io:8080/test/simple-app-index.html ==>127.0.0.1:8080==>Nginx-Ingress-Controller-Service:80==>simple-app-ingress(my ingress)==>simple-app-svc:80==>simple-app-pod:80
 
 Ingress config:
 - the simple-app, on the pod itself, is available at path "/" => localhost:80/simple-app-index.html
